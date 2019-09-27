@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Tests",
+      "type": "node",
+      "request": "launch",
+      "args": ["${workspaceRoot}/node_modules/.bin/jest", "--runInBand", "--forceExit", "${file}"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "name": "Debug Jest Test for current file",
+      "type": "node",
+      "request": "launch",
+      "args": [
+        "${workspaceRoot}/node_modules/create-js-component/src/startTest.js",
+        "--runInBand",
+        "--no-cache",
+        "--forceExit",
+        "${file}"
+      ],
+      "sourceMaps": true,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

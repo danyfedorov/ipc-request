@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run CI tests",
+      "type": "npm",
+      "script": "test:ci",
+      "group": "test",
+      "options": {
+        "shell": {
+          "executable": "bash",
+          "args": [
+            "-c"
+          ]
+        }
+      }
+    },
+    {
+      "label": "jest test for current file",
+      "type": "shell",
+      "command": "npm run test -- ${file}",
+      "options": {
+        "shell": {
+          "executable": "bash",
+          "args": [
+            "-c"
+          ]
+        }
+      },
+      "problemMatcher": []
+    }
+  ]
+}

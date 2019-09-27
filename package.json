@@ -1,0 +1,59 @@
+{
+  "name": "ipc-request",
+  "version": "1.0.7",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "js-component test --coverage",
+    "transpile": "js-component transpile",
+    "test:ci": "CI=1 npm test",
+    "postinstall": "npm run transpile"
+  },
+  "keywords": [],
+  "author": "Danylo Fedorov",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "create-js-component": "^1.0.4",
+    "nanoid": "^2.0.1"
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "presets": [
+          [
+            "env",
+            {
+              "modules": "commonjs"
+            }
+          ]
+        ]
+      },
+      "production": {
+        "ignore": [
+          "**/*.test.js"
+        ],
+        "presets": [
+          [
+            "env",
+            {
+              "modules": "commonjs"
+            }
+          ]
+        ]
+      }
+    }
+  },
+  "eslintConfig": {
+    "extends": "../../Controller/.eslintrc.json"
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
+  }
+}

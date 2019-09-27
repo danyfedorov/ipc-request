@@ -1,0 +1,20 @@
+{
+  "git.ignoreLimitWarning": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "*/node_modules": true,
+    "flow-visualizer": true
+  },
+  "search.exclude": {
+    "coverage": true,
+    "docs/generated": true
+  },
+  "terminal.integrated.scrollback": 100000,
+  "prettier.eslintIntegration": true,
+  "terminal.integrated.fontSize": 13,
+  "editor.formatOnSave": true
+}
