@@ -12,15 +12,17 @@ Consider
 ```js
 // parent.js
 
-const setupIpcSession = require('ipc-request')
-const { fork } = require('child_process')
+const setupIpcSession = require("ipc-request")
+const { fork } = require("child_process")
 
-setupIpcSession(fork('./child.js')).then((sendRequest) => {
-  console.log('[parent] Hands shook! Now I know that the child process listens to my requests')
-  const requestData = '(REQUEST FROM parent.js)'
-  console.log('[parent] Sending request: ', requestData)
-  return sendRequest(requestData).then((responseData) => {
-    console.log('[parent] Got response:    ', responseData)
+setupIpcSession(fork("./child.js")).then(sendRequest => {
+  console.log(
+    "[parent] Hands have been shaken! Now I know that the child process listens to my requests"
+  )
+  const requestData = "(REQUEST FROM parent.js)"
+  console.log("[parent] Sending request: ", requestData)
+  return sendRequest(requestData).then(responseData => {
+    console.log("[parent] Got response:    ", responseData)
     process.exit(0)
   })
 })
@@ -29,14 +31,14 @@ setupIpcSession(fork('./child.js')).then((sendRequest) => {
 ```js
 // child.js
 
-const setupIpcSession = require('ipc-request')
+const setupIpcSession = require("ipc-request")
 
 setupIpcSession(process, (data, sendResponse) => {
-  console.log('[child]  Got request:     ', data)
+  console.log("[child]  Got request:     ", data)
   const responseData = `(RESPONSE FROM child.js TO ${data})`
-  console.log('[child]  Sending response:', responseData)
+  console.log("[child]  Sending response:", responseData)
   return sendResponse(responseData).then(() => {
-    console.log('[child]  Response sent:   ', responseData)
+    console.log("[child]  Response sent:   ", responseData)
   })
 })
 ```
@@ -50,7 +52,7 @@ $ node parent.js
 you must see a log similar to this
 
 ```
-[parent] Hands shook! Now I know that the child process listens to my requests
+[parent] Hands have been shaken! Now I know that the child process listens to my requests
 [parent] Sending request:  (REQUEST FROM parent.js)
 [child]  Got request:      (REQUEST FROM parent.js)
 [child]  Sending response: (RESPONSE FROM child.js TO (REQUEST FROM parent.js))
